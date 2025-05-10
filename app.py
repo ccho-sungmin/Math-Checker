@@ -1,9 +1,14 @@
-
 import streamlit as st
 import openai
 from PIL import Image
 import io
 import base64
+
+# 인코딩 문제 방지 (ascii → utf-8 강제)
+import sys
+import os
+if sys.getdefaultencoding().lower() != "utf-8":
+    os.environ["PYTHONIOENCODING"] = "utf-8"
 
 st.set_page_config(page_title="수학 함수 조건 검증기", page_icon="🧠")
 
