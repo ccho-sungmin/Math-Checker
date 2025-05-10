@@ -7,7 +7,7 @@ import base64
 import sys
 
 # 인코딩 강제 utf-8 (ascii 오류 방지)
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+safe_input = user_input.strip().encode("utf-8", "ignore").decode("utf-8")
 
 st.set_page_config(page_title="수학 함수 조건 검증기", page_icon="🧠")
 
