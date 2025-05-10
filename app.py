@@ -6,9 +6,6 @@ import io
 import base64
 import sys
 
-# 인코딩 강제 utf-8 (ascii 오류 방지)
-safe_input = user_input.strip().encode("utf-8", "ignore").decode("utf-8")
-
 st.set_page_config(page_title="수학 함수 조건 검증기", page_icon="🧠")
 
 st.title("🧠 수학 함수 조건 검증기")
@@ -19,6 +16,7 @@ openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 # 텍스트 입력
 user_input = st.text_area("✍️ 수학 조건을 입력하세요", height=150, placeholder="예: f(x+y)=f(x)+f(y), f는 연속 아님, ℝ → ℝ")
+# 인코딩 강제 utf-8 (ascii 오류 방지)
 
 # 이미지 업로드
 uploaded_file = st.file_uploader("🖼️ 문제 이미지 업로드 (선택)", type=["png", "jpg", "jpeg"])
