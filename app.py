@@ -55,7 +55,9 @@ if st.button("검증하기"):
                         "content": [{"type": "image_url", "image_url": {"url": image_data_url}}]
                     })
                 else:
-                    messages.append({"role": "user", "content": f"조건: {user_input.strip()}"})
+                    safe_input = user_input.strip().encode("utf-8", "ignore").decode("utf-8")
+                    messages.append({"role": "user", "content": f"조건: {safe_input}"})
+
 
                 response = openai.chat.completions.create(
                     model="gpt-4-vision-preview" if image_data_url else "gpt-4",
