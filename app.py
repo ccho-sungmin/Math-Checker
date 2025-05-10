@@ -51,7 +51,7 @@ if st.button("검증하기"):
                 )
                 result = response.choices[0].message.content
                 st.success("검증 완료!")
-               st.markdown("**결과:**\n" + result)
+                st.markdown("**결과:**\n" + result)
 
             except Exception as e:
                 st.error(f"오류 발생: {e}")
